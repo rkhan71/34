@@ -7,7 +7,7 @@ connect = sqlite3.connect('lists.db')
 cursor = connect.cursor()
 cursor.execute('SELECT * FROM lists')
 allrows = cursor.fetchall()
-l = 1
+id = 1
 for row in allrows: #going through every single row in the table lists and making it the first edge of our square
     usednums = [row[0], row[1], row[2], row[3]] #storing the numbers that have been used in a list so that we can check and make sure not to re-use them
     cursor.execute(f'SELECT * FROM lists WHERE fst = {row[3]};') #finding all potential second edges (where the last number of the first edge is the first number of this edge)
@@ -28,6 +28,7 @@ for row in allrows: #going through every single row in the table lists and makin
                         #final if statement that makes sure the new numbers from the fourth and final edge have not already been used. If they haven't then
                         #a valid square has been created using the edges 'row', 'row2', 'row3', and 'row4'.
                         if row4[1] not in usednums and row4[2] not in usednums:
-                            print(f'Magic Square: {row}, {row2}, {row3}, {row4}')
-                            print(f'{l}')
-                            l += 1
+                            cursor.execute(f'INSERT INTO edges VALUES ({row[0]}, {row2[0]}, {row3[0]}, {row4[0]}, {id})')
+                            id += 1
+connect.commit()
+connect.close()
