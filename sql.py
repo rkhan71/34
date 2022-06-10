@@ -9,6 +9,7 @@ connect = sqlite3.connect('lists.db')
 cursor = connect.cursor()
 nums = range(1,17)
 sums = []
+id = 1
 
 #loop that creates every possible permutation of 4 numbers from 1-16 inclusive and puts those numbers into the list 'sum4'
 for i in range(16):
@@ -29,6 +30,7 @@ for i in range(16):
                 #if there are no repeated numbers and the numbers in sum4 add up to 34, this is a possible edge for our solution so each number
                 #from the current version of sum4 is stored into the table lists in a particular order
                 if sum(sum4) == 34 and norepeat:
-                    cursor.execute(f'INSERT INTO lists VALUES ({sum4[0]}, {sum4[1]}, {sum4[2]}, {sum4[3]});')
+                    cursor.execute(f'INSERT INTO lists VALUES ({id}, {sum4[0]}, {sum4[1]}, {sum4[2]}, {sum4[3]});')
+                    id += 1
 connect.commit()
 connect.close()
