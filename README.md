@@ -8,8 +8,9 @@ My Dad was the one who initially showed me this problem. He told me that he wrot
 
 I realized I would have to think a lot harder to create a more efficient solution for a problem of this size. This repository shows the code I wrote to create this more efficient solution using python and SQL.
 
-The file lists.db contains an SQL database created with sqlite3 containing one table, lists, which looks like this:
+The database lists.db created with sqlite3 contians three tables: lists, edges, and solutions, which look like this:
 CREATE TABLE lists (
+id int,
 fst int,
 snd int,
 thd int,
@@ -17,3 +18,21 @@ fth int
 );
 
 This table is built to contain every permutation of 4 numbers from 1-16 that add up to 34. The table is filled using the code in 'sql.py'
+
+CREATE TABLE edges (
+top int,
+right int,
+bottom int,
+left int,
+id int
+);
+
+This table is built to contain all the valid single squares that could be made from the numbers in the tables lists. Valid single squares contain 12 unique numbers (4 on each edge with the numbers on the corners used for 2 different edges), and all edges add up to 34. The column for each edge contains the id to a permutation of 4 numbers from lists. The table is filled using the code in 'square.py'.
+
+CREATE TABLE solutions (
+square1 int,
+square2 int
+);
+
+This table is built to contain the id to two squares from the table edges which overlap and produce a solution to the overall problem. 
+
