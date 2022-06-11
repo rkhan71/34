@@ -34,5 +34,5 @@ square1 int,
 square2 int
 );
 
-This table is built to contain the id to two squares from the table edges which overlap and produce a solution to the overall problem. 
+This table is built to contain the id to two squares from the table edges which overlap and produce a solution to the overall problem. An attempt at the code to fill this table was written in the file 'solution.py' however it does not work at the moment.
 
