@@ -2,7 +2,7 @@
 Writing code to solve a mathematical problem involving overlapping squares whose edges all add up to 34. 
 
 Here is a detailed description of the problem:
-There are 16 'points' created by the two overlapping squares as shown in IMG-3346.jpg. The goal is to use each of the numbers from 1-16 inclusive only once at each point so that every edge on both squares adds up to 34. Referencing the image provided in IMG-3346.jpg, the points 1, 2, 4, and 5 create on type of edge while the points 15, 16, 2, and 3 create another type of edge. There are 8 edges in total.
+There are 16 'points' created by the two overlapping squares as shown in the image below. The goal is to use each of the numbers from 1-16 inclusive only once at each point so that every edge on both squares adds up to 34. Referencing the image provided in IMG-3346.jpg, the points 1, 2, 4, and 5 create on type of edge while the points 15, 16, 2, and 3 create another type of edge. There are 8 edges in total.
 
 ![alt text](https://github.com/rkhan71/34/blob/main/IMG-3346.jpg?raw=true)
 
@@ -14,5 +14,8 @@ At first I used the code in the folder 'first attempt'. These files of code put 
 
 In the folder 'second attempt' I have code which produces all the possible solutions to this problem. Here, I use almost exactly the same code to create the permutations of 4 numbers that add up to 34 and add them to a database. Then I use very similar code to create the squares, fixing the earlier mistake I had made. However, I do not add them to the database after creating them. Instead, I then look for the permutations of 4 numbers from the database which could be added to the square to create a solution, if there are any. If I find a solution, I add that to the database. 
 
-I ended up with 1,792 solutions. The code to add these solutions to the database took about an hour to run after going through all 4,036,864 possible squares. This is obviously much better than 3 days, however, I am still working on optimizing the solution so that it can be even more efficient.
+I ended up with 1,792 solutions. The code to add these solutions to the database took about an hour to run after going through all 4,036,864 possible squares. This is obviously much better than 3 days, however, I am still working on optimizing the solution so that it can be even more efficient. Here is an example of a solution below:
+
+![alt text](https://github.com/rkhan71/34/blob/main/34solution.png?raw=true)
+
 
