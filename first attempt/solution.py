@@ -14,7 +14,7 @@ for sq in squares:
     b = cursor.fetchone()
     cursor.execute(f'SELECT * FROM lists WHERE id = {sq[3]}')
     l = cursor.fetchone()
-    #get lists of ids of square which contain edges that work
+    #get lists of ids of squares which contain edges that would work in the positions required by the problem
     cursor.execute(f'SELECT id FROM edges WHERE top IN (SELECT id FROM lists WHERE snd = {l[3]} AND thd = {t[2]});')
     tops = cursor.fetchall()
     tlist = []
@@ -37,7 +37,7 @@ for sq in squares:
         llist += [left]
     #make sure no lists are empty
     if tlist and rlist and blist and llist:
-        #find intersect of lists
+        #find intersect of lists. These are the ids of squares which contain a valid top, right, bottom, and left edge.
         intersect = list(set(tlist) & set(rlist) & set(blist) & set(llist))
         #make sure intersect is not empty then check that the chosen squares have no duplicate numbers and if so add them to the database
         if intersect:
