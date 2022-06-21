@@ -18,6 +18,8 @@ for row in allrows: #going through every single row in the table lists and makin
         #if statement makes sure that there is at least one potential third edge for us to use and makes sure that the numbers in the second edge
         #have not already been used
         if len(ln3) > 0 and row2[2] not in usednums and row2[3] not in usednums and row2[4] not in usednums: 
+            #MISTAKE: appending to the usednums list and not deleteting old values from it in each loop means that the list contains more numbers than it should which 
+            #lead to millions of valid squares not being entered into the database
             usednums += [row2[2], row2[3], row2[4]]
             for row3 in ln3: 
                 cursor.execute(f'SELECT * FROM lists WHERE fst = {row3[4]} AND fth = {row[1]};')
